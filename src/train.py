@@ -14,24 +14,9 @@ import torch
 from torch.utils.data import DataLoader
 from src.models import SurfaceNet2d
 from src.datasets import FakeDataset
-from src.utils import CBCELoss
+from src.utils import CBCELoss, cal_alpha
 
 default_weight_path = '../weights'
-
-
-def cal_alpha(dataloader):
-    """
-    Calculate class-balance coefficient alpha
-    """
-    alpha = 0
-    for i, (_, _, gt) in enumerate(dataloader):
-        voxel_num = 1
-        for s in gt.shape:
-            voxel_num *= s
-        alpha += 1 - gt.sum() / voxel_num
-    alpha /= len(dataloader)
-    print(alpha)
-    return alpha
 
 
 def train(epochs, batch_size, check_point, weight_file=''):

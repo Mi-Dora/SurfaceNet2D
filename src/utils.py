@@ -15,6 +15,21 @@ import torch.nn as nn
 NEAR_0 = 1e-10
 
 
+def cal_alpha(dataloader):
+    """
+    Calculate class-balance coefficient alpha
+    """
+    alpha = 0
+    for i, (_, _, gt) in enumerate(dataloader):
+        voxel_num = 1
+        for s in gt.shape:
+            voxel_num *= s
+        alpha += 1 - gt.sum() / voxel_num
+    alpha /= len(dataloader)
+    print(alpha)
+    return alpha
+
+
 class CBCELoss(nn.Module):
     """
     Class-balanced cross-entropy loss function
