@@ -123,10 +123,13 @@ def black2white(image):
 if __name__ == '__main__':
     img = cv2.imread('../../data/apple-logo-png-12906.png')
 
+    # set the following parameters, which could change the pose and position of the virtual camera
     position = (-100, 300)
     orientation = (1, 0.3)
     fov = 80
-    cvc, projection = project(img, position, orientation, fov, 0.5)
+
+    cvc, projection = project(img, position, orientation, fov, interval=0.5)
+    # extend the 1D projection to 64 rows
     projection = projection[np.newaxis, :, :]
     for _ in range(6):
         projection = np.concatenate((projection, projection), axis=0)
@@ -134,17 +137,21 @@ if __name__ == '__main__':
     cv2.imwrite('../../images/projection1.png', projection)
     layout = draw_cam(img, position, orientation, fov)
 
+    # set the second camera
     position = (-100, 600)
     orientation = (1, -0.8)
     fov = 80
-    cvc, projection = project(img, position, orientation, fov, 0.5)
+
+    cvc, projection = project(img, position, orientation, fov, interval=0.5)
     projection = projection[np.newaxis, :, :]
     for _ in range(6):
         projection = np.concatenate((projection, projection), axis=0)
     cv2.imwrite('../../images/cvc2.png', cvc)
     cv2.imwrite('../../images/projection2.png', projection)
-    layout = draw_cam(layout, position, orientation, fov, padding=False).astype('uint8')
+    layout = draw_cam(layout, position, orientation, fov, padding=False)
+    
+    layout = layout.astype('uint8')
     black2white(layout)
-
+    # draw layout
     cv2.imwrite('../../images/layout.png', layout)
 
