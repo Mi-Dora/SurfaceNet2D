@@ -13,3 +13,7 @@ cd src
 python train.py
 ```
 
+## Visualization
+
+![layout](https://github.com/Mi-Dora/SurfaceNet2D/blob/master/images/layout.png)
+
