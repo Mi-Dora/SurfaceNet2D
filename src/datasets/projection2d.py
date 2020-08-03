@@ -149,7 +149,7 @@ if __name__ == '__main__':
     projection = projection[np.newaxis, :, :]
     for _ in range(5):
         projection = np.concatenate((projection, projection), axis=0)
-    cv2.imwrite('../../images/cvc1_1.png', black2white(cvc))
+    cv2.imwrite('../../images/cvc1.png', black2white(cvc))
     cv2.imwrite('../../images/projection1.png', projection)
     layout = draw_cam(img, position, orientation, fov, draw_interval_view=None)
 
@@ -162,7 +162,7 @@ if __name__ == '__main__':
     projection = projection[np.newaxis, :, :]
     for _ in range(5):
         projection = np.concatenate((projection, projection), axis=0)
-    cv2.imwrite('../../images/cvc2_2.png', black2white(cvc))
+    cv2.imwrite('../../images/cvc2.png', black2white(cvc))
     cv2.imwrite('../../images/projection2.png', projection)
     layout = draw_cam(layout, position, orientation, fov, padding=False)
 
