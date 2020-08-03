@@ -171,6 +171,10 @@ if __name__ == '__main__':
     # draw layout
     cv2.imwrite('../../images/layout.png', layout)
 
+    # cam = np.zeros((500, 500, 3))
+    # cam = draw_cam(cam, (0, 50), (1, 0), 80, padding=False, size=300, draw_interval_view=10)
+    # black2white(cam)
+    # cv2.imwrite('../../images/vcam.png', cam)
 
     # cam = np.zeros((500, 500, 3))
     # cam = draw_cam(cam, (0, 50), (1, 0), 80, padding=False, size=300, draw_interval_view=10)
