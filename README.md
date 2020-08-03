@@ -15,9 +15,10 @@ python train.py
 
 ## Visualization
 
+The example is [Apple Logo](https://github.com/Mi-Dora/SurfaceNet2D/blob/master/data/apple-logo-png-12906.png)
 <center>     <img src="https://github.com/Mi-Dora/SurfaceNet2D/blob/master/images/layout.png"> </center> 
 
-Following two figures are the projections taking from the two cameras above, which should be a 1D matrix. Here, the projection is extended to 64 rows to show clearly.
+Following two figures are the projections taking from the two cameras above, which should be 1D matrix. Here, the projection is extended to 64 rows to show more clearly.
 
 <center><figure class="half">     <img src="https://github.com/Mi-Dora/SurfaceNet2D/blob/master/images/projection1.png" title="Projection 1" width=300>     <img src="https://github.com/Mi-Dora/SurfaceNet2D/blob/master/images/projection2.png" title="Projection 2" width=300> </figure></centercenter>
 
